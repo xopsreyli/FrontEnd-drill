@@ -1,0 +1,889 @@
+@use 'colors';
+@use 'mixins';
+
+.parallax-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 1000px;
+}
+
+//intro section
+
+.intro-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  transform: translateZ(-1000px) scale(2);
+  z-index: -2;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.intro {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background-color: transparent;
+  z-index: -1;
+
+  &__box {
+    @include mixins.flex(
+            $flex-direction: column,
+            $align-items: center,
+    );
+  }
+}
+
+header {
+  @include mixins.flex(
+          $justify-content: space-between,
+          $align-items: center
+  );
+  align-self: stretch;
+  padding-top: 40px;
+}
+
+.logo {
+  color: colors.$white;
+  font: {
+    size: 28px;
+    weight: 700;
+  }
+}
+
+.navigation {
+  @include mixins.flex(
+          $gap: 64px,
+  );
+
+  &__link {
+    color: colors.$white;
+    font: {
+      size: 18px;
+    }
+    text: {
+      transform: capitalize;
+    }
+  }
+}
+
+.list {
+  @include mixins.flex(
+          $align-items: center,
+          $gap: 8px,
+  );
+
+  &__arrow {
+    display: block;
+  }
+}
+
+.bag {
+  position: relative;
+
+  &__img {
+    width: 34px;
+    display: block;
+    aspect-ratio: 1;
+  }
+
+  &__counter {
+    position: absolute;
+    right: -2px;
+    top: 4px;
+    background-color: colors.$orange;
+    border: {
+      radius: 100%;
+    }
+    color: colors.$white;
+    font: {
+      size: 14px;
+    }
+    padding: 4px;
+  }
+}
+
+.title {
+  text: {
+    align: center;
+    transform: capitalize;
+  }
+  color: colors.$white;
+  font: {
+    size: 80px;
+    weight: 700;
+  }
+  line-height: 130%;
+  margin: {
+    top: 80px;
+    bottom: 16px;
+  }
+}
+
+.subtitle {
+  text-align: center;
+  color: colors.$white;
+  font-size: 24px;
+  opacity: 0.8;
+  line-height: 160%;
+  margin-bottom: 44px;
+}
+
+.search {
+  @include mixins.flex(
+          $align-items: center,
+          $gap: 8px,
+  );
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 42px;
+  padding: {
+    top: 8px;
+    bottom: 8px;
+    left: 20px;
+    right: 8px;
+  }
+
+  &__input {
+    width: 264px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: colors.$white;
+    font-size: 18px;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &__button {
+    @include mixins.flex(
+            $justify-content: center,
+            $align-items: center,
+    );
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: colors.$orange;
+  }
+}
+
+// general styles
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+
+  &__p80 {
+    padding: {
+      left: 80px;
+      right: 80px;
+    }
+  }
+}
+
+.section-name {
+  text-transform: uppercase;
+  color: colors.$orange;
+  font: {
+    size: 18px;
+    weight: 700;
+  }
+  letter-spacing: 3.15px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  text-transform: capitalize;
+  color: colors.$black;
+  font: {
+    size: 42px;
+    weight: 700;
+  }
+
+  &--centered {
+    text-align: center;
+  }
+}
+
+.section-description {
+  max-width: 550px;
+  color: colors.$black;
+  font-size: 18px;
+  line-height: 185%;
+  opacity: 0.8;
+  margin: {
+    top: 20px;
+    bottom: 24px;
+  }
+}
+
+.more-info {
+  @include mixins.flex(
+          $align-items: center,
+          $gap: 12px,
+  );
+
+  &__text {
+    text-transform: capitalize;
+    color: colors.$orange;
+    font-size: 14px;
+  }
+}
+
+.themed {
+  background-color: #f7f7f7;
+}
+
+//why choosing us section
+
+.why-us {
+  @include mixins.flex(
+          $align-items: center,
+          $gap: 112px,
+  );
+  padding: 120px 0;
+
+  &__cards {
+    @include mixins.flex(
+            $gap: 28px,
+    )
+  }
+
+  &__card {
+    width: 284px;
+  }
+
+  &__card-title {
+    text-transform: capitalize;
+    color: colors.$black;
+    font: {
+      size: 24px;
+      weight: 700;
+    }
+    opacity: 0.9;
+    margin-bottom: 20px;
+  }
+
+  &__card-text {
+    color: colors.$black;
+    font-size: 16px;
+    line-height: 185%;
+    opacity: 0.8;
+    margin-bottom: 14px;
+  }
+}
+
+// best selling product section
+
+.best-sell {
+  padding: {
+    top: 50px;
+    bottom: 50px;
+  }
+
+  &__more-box {
+    @include mixins.flex(
+            $justify-content: center,
+    )
+  }
+
+  &__more {
+    @include mixins.flex(
+            $align-items: center,
+            $gap: 12px,
+    );
+  }
+
+  &__more-text {
+    color: colors.$orange;
+    font-size: 18px;
+  }
+}
+
+.best-sell-filter-box {
+  @include mixins.flex(
+          $justify-content: center
+  );
+  margin: {
+    top: 32px;
+    bottom: 80px;
+  }
+}
+
+.best-sell-filter {
+  @include mixins.flex();
+  background-color: #eee;
+  border-radius: 44px;
+  padding: 6px;
+
+  &__input {
+    display: none;
+
+    &:checked + .best-sell-filter__label {
+      background-color: colors.$white;
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 185%;
+    border-radius: 32px;
+    opacity: 0.8;
+    padding: 7px 20px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
+.best-sell-slider {
+  position: relative;
+  overflow-x: hidden;
+  padding: 0 40px;
+  margin-bottom: 60px;
+
+  &__button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: colors.$white;
+    border-radius: 50%;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.06);
+    @include mixins.flex(
+            $justify-content: center,
+            $align-items: center,
+    );
+    transform: translate3d(0, -50%, 0);
+    z-index: 2;
+
+    &--prev {
+      left: 16px;
+    }
+
+    &--next {
+      right: 16px;
+    }
+  }
+
+  &__track {
+    @include mixins.flex(
+            $align-items: stretch,
+            $gap: 42px,
+    )
+  }
+
+  &__card {
+    @include mixins.flex(
+            $flex-direction: column,
+    );
+    width: calc((100% - 126px) / 4);
+    z-index: 1;
+  }
+
+  &__card-img-box {
+    position: relative;
+    flex-grow: 1;
+
+    &:before {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 80%;
+      background-color: #fafafa;
+      border-radius: 20px 20px 0 0;
+      z-index: -1;
+    }
+  }
+
+  &__card-img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__card-info {
+    background-color: colors.$white;
+    border-radius: 0 0 20px 20px;
+    padding: {
+      top: 12px;
+      left: 20px;
+      right: 20px;
+      bottom: 28px;
+    }
+  }
+
+  &__card-group {
+    color: colors.$grey;
+  }
+
+  &__card-name {
+    color: colors.$dark-blue;
+    font: {
+      size: 21px;
+      weight: 700;
+    }
+    margin: 6px 0;
+  }
+
+  &__card-rating {
+    @include mixins.flex(
+            $gap: 3px,
+    )
+  }
+
+  &__card-footer {
+    @include mixins.flex(
+            $justify-content: space-between,
+            $align-items: center,
+    );
+    margin-top: 36px;
+  }
+
+  &__card-price {
+    position: relative;
+    color: colors.$dark-blue;
+    font: {
+      size: 21px;
+      weight: 600;
+    }
+    padding-left: 14px;
+
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '$';
+      display: block;
+      color: colors.$dark-blue;
+      font: {
+        size: 16px;
+        weight: 700;
+      }
+    }
+  }
+
+  &__card-add {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: colors.$dark-blue;
+    color: colors.$white;
+    font: {
+      size: 32px;
+    }
+  }
+}
+
+.after-intro-shadow {
+  border: none;
+  box-shadow: 0 0 40px 80px colors.$white;
+}
+
+// experience section
+
+.experience {
+  @include mixins.flex(
+          $align-items: center,
+  );
+  padding: {
+    top: 300px;
+    bottom: 270px;
+  }
+
+  &__gallery {
+    width: 50%;
+    z-index: 1;
+  }
+
+  &__image-box {
+    position: relative;
+    max-width: 602px;
+  }
+
+  &__image-decoration-1,
+  &__image-decoration-2 {
+    position: absolute;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    z-index: -1;
+  }
+
+  &__image-decoration-1 {
+    left: -13%;
+    top: -15%;
+    width: 82%;
+    height: 95%;
+  }
+
+  &__image-decoration-2 {
+    right: -12%;
+    top: 50%;
+    width: 82%;
+    height: 68%;
+    transform: translateY(-50%);
+  }
+
+  &__info {
+    width: 50%;
+    padding-left: 23px;
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+
+    &--blured {
+      position: absolute;
+      left: 50%;
+      top: 80px;
+      width: 88%;
+      transform: translate3d(-50%, 0, 0);
+      border-radius: 49px;
+      filter: blur(25px);
+      opacity: 0.5;
+      z-index: -1;
+    }
+  }
+}
+
+// materials section
+
+.materials {
+  @include mixins.flex(
+          $align-items: center,
+    $gap: 20px,
+  );
+  padding-bottom: 240px;
+
+  &__info {
+    width: 50%;
+    padding-left: 80px;
+  }
+
+  &__gallery {
+    width: 50%;
+    display: grid;
+    gap: 42px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 10fr 13fr;
+    z-index: 1;
+  }
+
+  &__gallery-box2 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    @include mixins.flex(
+      $align-items: flex-end,
+    );
+    padding-bottom: 16px;
+  }
+}
+
+.gallery-image-box {
+  position: relative;
+}
+
+.materials-image-decoration {
+  position: absolute;
+  top: -16%;
+  right: -45%;
+  content: '';
+  width: 108%;
+  height: 95%;
+  display: block;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.gallery-image {
+  border-radius: 20px;
+
+  &--blured {
+    position: absolute;
+    left: 50%;
+    top: 22%;
+    width: 84%;
+    transform: translate3d(-50%, 0, 0);
+    border-radius: 49px;
+    filter: blur(25px);
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
+
+// testimonials section
+
+.testimonials {
+  padding-bottom: 244px;
+
+  &__section-name-box {
+    @include mixins.flex(
+      $justify-content: center,
+    )
+  }
+}
+
+.testimonials-slider {
+  position: relative;
+  padding: 0 40px;
+  margin-top: 60px;
+
+  &__button {
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    width: 50px;
+    height: 50px;
+    background-color: colors.$white;
+    border-radius: 50%;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.06);
+    @include mixins.flex(
+            $justify-content: center,
+            $align-items: center,
+    );
+    z-index: 2;
+
+    &--prev {
+      left: 15px;
+    }
+
+    &--next {
+      right: 15px;
+    }
+  }
+
+  &__track {
+    @include mixins.flex(
+            $gap: 40px,
+    )
+  }
+
+  &__card {
+    position: relative;
+    width: calc((100% - 80px) / 3);
+  }
+
+  &__card-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__card-background-shadow {
+    position: absolute;
+    left: 50%;
+    top: 88px;
+    width: 88%;
+    transform: translate3d(-50%, 0, 0);
+    border-radius: 49px;
+    filter: blur(25px);
+    opacity: 0.5;
+    z-index: -1;
+  }
+
+  &__card-review {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    @include mixins.flex(
+      $flex-direction: column,
+      $align-items: center,
+    );
+    border-radius: 18px;
+    background-color: colors.$white;
+    padding: 40px 40px 16px;
+  }
+
+  &__card-avatar-box {
+    position: absolute;
+    top: 0;
+    background-color: colors.$white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    padding: 8px;
+  }
+
+  &__card-avatar {
+    &--blur {
+      position: absolute;
+      top: calc(50% + 5px);
+      left: 50%;
+      opacity: 0.5;
+      transform: translate3d(-50%, -50%, 0);
+      filter: blur(13px);
+      z-index: -1;
+    }
+  }
+
+  &__card-name {
+    color: colors.$black;
+    font: {
+      size: 18px;
+      weight: bold;
+    }
+    margin-bottom: 6px;
+  }
+
+  &__card-from {
+    color: colors.$black;
+    font-size: 12px;
+    opacity: 0.6;
+  }
+  
+  &__card-comment {
+    text-align: center;
+    color: colors.$black;
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 22px 0;
+  }
+
+  &__card-rating {
+    @include mixins.flex(
+      $gap: 6px
+    )
+  }
+
+  &__card-star {
+    width: 12px;
+    fill: #F6973F;
+
+    &--inactive {
+      opacity: 30%;
+    }
+  }
+}
+
+// footer section
+
+.footer-container {
+  max-width: 1064px;
+  padding: {
+    top: 118px;
+    bottom: 56px;
+  }
+  margin: auto;
+}
+
+.footer-content {
+  @include mixins.flex(
+    $gap: 152px,
+  );
+  margin-bottom: 120px;
+}
+
+.footer-logo {
+  display: block;
+  color: colors.$black;
+  font: {
+    size: 28px;
+    weight: 700;
+  }
+  margin-bottom: 30px;
+}
+
+.footer-description {
+  max-width: 293px;
+  color: colors.$black;
+  font-size: 15px;
+  line-height: 160%;
+  opacity: 0.8;
+}
+
+.footer-nav {
+  @include mixins.flex(
+    $justify-content: space-between,
+  );
+  flex-grow: 1;
+}
+
+.footer-nav-menu {
+  &__title {
+    color: #F6973F;
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  &__links {
+    @include mixins.flex(
+            $flex-direction: column,
+            $gap: 16px,
+    )
+  }
+
+  &__link {
+    color: colors.$black;
+    font-size: 15px;
+    opacity: 0.8;
+  }
+}
+
+.social {
+  @include mixins.flex(
+          $align-items: center,
+          $gap: 6px,
+  )
+}
+
+.social-image-box {
+  @include mixins.flex(
+          $justify-content: center,
+          $align-items: center,
+  );
+  width: 20px;
+  aspect-ratio: 1;
+}
+
+.social-image {
+  object-fit: cover;
+}
+
+.policy {
+  @include mixins.flex(
+    $justify-content: space-between,
+    $align-items: center,
+  );
+
+  &__copyright {
+    color: #1e2833;
+    font-size: 15px;
+    opacity: 0.5;
+  }
+
+  &__links {
+    @include mixins.flex(
+      $gap: 40px,
+    )
+  }
+
+  &__link {
+    color: colors.$black;
+    font-size: 15px;
+    opacity: 0.8;
+  }
+}
