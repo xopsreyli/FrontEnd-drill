@@ -1,7 +1,8 @@
 @use 'colors';
+@use 'fonts';
 
 * {
-  font-family: sans-serif;
+  font-family: 'Gilroy', sans-serif;
   box-sizing: border-box;
   line-height: 1;
   padding: 0;
