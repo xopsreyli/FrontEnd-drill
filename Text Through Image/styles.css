@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+ background-color: #222;
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+}
+
+.image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: max-content;
+    font-size: 200px;
+    font-weight: 700;
+    font-family: sans-serif;
+    transform: translateX(-50%);
+}
+
+.text--back {
+    color: #111;
+    z-index: 0;
+}
+
+.text--front {
+    color: transparent;
+    -webkit-text-stroke: 2px #eee;
+    z-index: 2;
+}
